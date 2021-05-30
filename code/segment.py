@@ -1,5 +1,6 @@
 from tricks import *
 from ai import *
+import sys
 
 
 def go_flipped_vector(x):
@@ -83,13 +84,20 @@ def segment(image):
 
 
 if __name__=='__main__':
-    import sys
-    image = cv2.imread(sys.argv[1])
-    skeleton, region, flatten = segment(image)
-    cv2.imwrite('./current_skeleton.png', skeleton)
-    cv2.imwrite('./current_region.png', region)
-    cv2.imwrite('./current_flatten.png', flatten)
-    print('./current_skeleton.png')
-    print('./current_region.png')
-    print('./current_flatten.png')
-    print('ok!')
+    SINGLE_IMG = True
+    if SINGLE_IMG:
+        path = './images/' + sys.argv[1] + '.jpg'
+        image = cv2.imread(path)
+        skeleton, region, flatten = segment(image)
+        cv2.imwrite('./results/' + sys.argv[1] + '_skeleton.png', skeleton)
+        cv2.imwrite('./results/' + sys.argv[1] + '_region.png', region)
+        cv2.imwrite('./results/' + sys.argv[1] + '_flatten.png', flatten)
+        print('[INFO] IMAGES SAVED!!')
+    else:
+        for i in range(67):
+            path = './images/' + str(i) + '.jpg'
+            image = cv2.imread(path)
+            _, _, flatten = segment(image)
+            save_path = './results/' + str(i) + '_flatten.png'
+            cv2.imwrite(save_path, flatten)
+            print('[INFO] <' + save_path + '> SAVED!!')

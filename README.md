@@ -8,7 +8,7 @@ Conda env 생성 (python 3.6)
 
     conda create -n danbooregion python=3.6
 
-Library 설치하기 (numba, llbmlite, opencv 버전 주의)
+Library 설치하기 (numba, llvmlite, opencv 버전 주의)
 
     pip install tensorflow_gpu==1.5.0
     pip install keras==2.2.4
