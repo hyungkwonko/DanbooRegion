@@ -1,3 +1,37 @@
+## 설치 관련 이슈
+
+Docker container 생성 (cuda 9.0, cudnn7, ubuntu 16.04)
+
+    nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
+
+Conda env 생성 (python 3.6)
+
+    conda create -n danbooregion python=3.6
+
+Library 설치하기 (numba, llbmlite, opencv 버전 주의)
+
+    pip install tensorflow_gpu==1.5.0
+    pip install keras==2.2.4
+    pip install opencv-python==3.4.2.17
+    pip install numpy==1.15.4
+    pip install scipy==1.1.0
+    pip install scikit-image==0.13.0
+    pip install scikit-learn==0.22.2
+    pip install -U llvmlite==0.32.1
+    pip install numba==0.47
+
+Cudnn 7.0.5 설치법 (cudnn incompatible issue)
+
+https://medium.com/repro-repo/install-cuda-and-cudnn-for-tensorflow-gpu-on-ubuntu-79306e4ac04e
+
+TypeError: Type of #4 arg mismatch: i1 != i32
+
+https://github.com/numba/numba/issues/5051#issuecomment-574300560
+
+이거 말고 자잘한 이슈는 검색하면 나오는대로 설치하면 실행 됨
+
+----
+
 # The DanbooRegion 2020 Dataset
 
 ![img0](https://lllyasviel.github.io/DanbooRegion/page_imgs/teaser.jpg)
